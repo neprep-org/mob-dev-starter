@@ -107,7 +107,6 @@ export default class UserController {
         select: {
           id: true,
           email: true,
-          name: true,
         },
       });
       res.status(200).json({

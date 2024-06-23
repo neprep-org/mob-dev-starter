@@ -4,6 +4,7 @@ export const productSchema = z.object({
   name: z.string(),
   price: z.number(),
   description: z.string(),
+  quantity: z.number(),
 });
 
 export const validateProduct = (data: any) => {

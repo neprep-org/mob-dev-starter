@@ -3,6 +3,7 @@ import express = require("express");
 import cors = require("cors");
 import bodyParser = require("body-parser");
 import cookieParser = require("cookie-parser");
+import morgan = require("morgan");
 import userRouter from "./modules/users/usersRouter";
 import isAuthenticated from "./middlewares/auth";
 import productsRouter from "./modules/products/productsRouter";
@@ -14,6 +15,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan("dev"));
 
 app.use((req, res, next) => {
   const origin = req.headers.origin || "*";
@@ -27,11 +30,6 @@ app.use((req, res, next) => {
     "Access-Contxprol-Allow-Headers",
     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization"
   );
-  next();
-});
-
-app.use((req, res, next) => {
-  console.log(req.originalUrl, "\t", req.method, "\t", req.url);
   next();
 });
 

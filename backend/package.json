@@ -7,10 +7,12 @@
     "dev": "nodemon  src/server.ts",
     "build": "tsc",
     "start": "node dist/src/server.js",
-    "prisma-generate": "prisma generate"
+    "prisma-generate": "prisma generate",
+    "prisma:update": "prisma format && prisma db push && prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.15.0",
+    "@prisma/client": "^5.15.1",
+    "@types/morgan": "^1.9.9",
     "@types/nodemailer": "^6.4.8",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
@@ -19,6 +21,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
     "nodemailer": "^6.9.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
