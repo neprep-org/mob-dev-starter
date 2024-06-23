@@ -4,7 +4,7 @@ import React from "react";
 import { Image, SafeAreaView, Text, View } from "react-native";
 
 export default function Profile() {
-  const { loggingOut, logout } = useAuth();
+  const { loggingOut, logout, user } = useAuth();
 
   return (
     <SafeAreaView className="h-full bg-white">
@@ -19,10 +19,10 @@ export default function Profile() {
           }}
         />
         <Text className="mt-5 text-2xl font-semibold text-center">
-          Mutesa Cedric
+          {user?.name ?? "... username ..."}
         </Text>
         <Text className="text-base text-center text-gray-500">
-          mutesacedric@gmail.com
+          {user?.email ?? "... email ..."}
         </Text>
         <CustomButton
           title="Logout"

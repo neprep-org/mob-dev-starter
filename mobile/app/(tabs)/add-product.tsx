@@ -14,6 +14,7 @@ const AddProduct = () => {
     name: "",
     description: "",
     price: 0,
+    quantity: 0,
   });
 
   const handleSubmit = () => {
@@ -68,6 +69,19 @@ const AddProduct = () => {
           keyboardType="numeric"
           containerStyles="mt-3"
         />
+        <CustomInput
+          value={
+            formData.quantity.toString() === "NaN"
+              ? ""
+              : formData.quantity.toString()
+          }
+          label="Quantity"
+          placeholder="Enter available quantity"
+          onChangeText={(val) =>
+            setFormData({ ...formData, quantity: parseInt(val) })
+          }
+          keyboardType="numeric"
+          containerStyles="mt-3"        />
       </View>
       <CustomButton
         title="Add Product"

@@ -90,7 +90,7 @@ export default class ProductsController {
       // @ts-ignore
       if (existingProduct.userId !== req.user) {
         return res.status(403).json({
-          message: "Forbidden",
+          message: "Can't update product you didn't create",
         });
       }
       const updatedProduct = await prismaClient.product.update({
