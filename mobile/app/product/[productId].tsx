@@ -46,7 +46,7 @@ const ProductView = () => {
         }, 1000);
       }
     }
-  }, [pathname]);
+  }, []);
 
   const handleSubmit = () => {
     if (!formData.name || !formData.description || !formData.price) {
